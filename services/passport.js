@@ -23,8 +23,8 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: "https://fast-everglades-48584.herokuapp.com/auth/google/callback",
-      proxy: true
+      callbackURL: keys.callbackUrl,
+ 
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id }).then(existingUser => {
